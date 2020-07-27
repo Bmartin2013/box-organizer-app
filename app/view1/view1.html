@@ -1,0 +1,30 @@
+<body ng-app="myApp.view1">
+    <div ng-controller="View1Ctrl">
+
+        <h2>My Inventory</h2>
+
+        <table ng-repeat="box in boxes">
+            <tbody class="box-info"> 
+                <tr>
+                    <td>
+                        <div class="box-title">
+                            <h3>{{box.name}}</h3>
+                            <button ng-click="getQR()"> {{showQr ? "Hide QR" : "Show QR"}}</button>  |
+                            <button href="#" ng-click="removeBox(box.id)"> Delete</button> 
+                        </div>
+    
+                        <ul ng-repeat="item in box.items">
+                            <li><b>{{item.name}}</b><span ng-if="item.description"> - {{item.description}}</span></li>
+                        </ul>
+                    </td>
+                    <td ng-show="showQr"> 
+                        <div class="qr-caption">
+                            <qr text=createQR(box) size="300"></qr>
+                            <p>Print and paste this QR code in your box to check the inventory at glance!</p>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>

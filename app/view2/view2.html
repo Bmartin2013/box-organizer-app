@@ -1,0 +1,25 @@
+<body ng-app="myApp.view2">
+  <div ng-controller="View2Ctrl">
+
+    <h2>Add a new box</h2>
+
+    <form>
+      <div class="form-box">
+        <label>Box name</label><br>
+        <input ng-model="boxName" type="text"><br>
+      </div>
+      <div class="form-box">
+        <label>Item name</label><br>
+        <input ng-model="itemName" type="text"><br>
+      </div>
+      <div class="form-box">
+        <label>Description</label><br>
+        <textarea ng-model="itemDescription" name="" rows="4" cols="50"></textarea><br>
+      </div>
+
+      <button ng-click="addBox()">Add a new box</button><br><br>
+
+    </form>
+
+  </div>
+</body>
