@@ -9,7 +9,7 @@
                     <td>
                         <div class="box-title">
                             <h3>{{box.name}}</h3>
-                            <button ng-click="getQR()"> {{showQr ? "Hide QR" : "Show QR"}}</button>  |
+                            <button ng-click="getQR(box.id)"> QR</button>  |
                             <button href="#" ng-click="removeBox(box.id)"> Delete</button> 
                         </div>
     
@@ -17,7 +17,7 @@
                             <li><b>{{item.name}}</b><span ng-if="item.description"> - {{item.description}}</span></li>
                         </ul>
                     </td>
-                    <td ng-show="showQr"> 
+                    <td class="hidden" id="showQr-{{box.id}}"> 
                         <div class="qr-caption">
                             <qr text=createQR(box) size="300"></qr>
                             <p>Print and paste this QR code in your box to check the inventory at glance!</p>

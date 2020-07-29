@@ -12,7 +12,7 @@ angular.module('myApp.view1', ['ngRoute'])
   }])
 
   .controller('View1Ctrl', ['$scope', '$http', function ($scope, $http) {
-    $scope.showQr = false;
+    // $scope.showQr = false;
 
     $http({
       method: "GET",
@@ -43,7 +43,8 @@ angular.module('myApp.view1', ['ngRoute'])
       return qrText;
     }
 
-    $scope.getQR = () => {
-      $scope.showQr =!$scope.showQr ;
+    $scope.getQR = (boxId) => {
+      var myEl = angular.element( document.querySelector( `#showQr-${boxId}` ) );
+      myEl.toggleClass('hidden'); 
     }
   }]);
