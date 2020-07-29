@@ -22,18 +22,6 @@ angular.module('myApp.view1', ['ngRoute'])
       $scope.boxes = error.statusText;
     });
 
-    $scope.removeBox = (boxId) => {
-
-      $http({
-        method: "POST",
-        url: `${__env.apiUrl}/removebox?id=${boxId}`
-      }).then((response) => {
-        console.log(response);
-      }, (error) => {
-        console.log(error);
-      });
-    }
-
     $scope.createQR = (box) => {
       let qrText = `${box.name}`
       box.items.forEach(item => {
@@ -46,5 +34,5 @@ angular.module('myApp.view1', ['ngRoute'])
       var myEl = angular.element( document.querySelector( `#showQr-${boxId}` ) );
       myEl.toggleClass('hidden'); 
     }
-    
+
   }]);
